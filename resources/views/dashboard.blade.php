@@ -39,8 +39,4 @@
             </div>
         </div>
     </div>
-    <div>
-        <a href="{{route('postlogout')}}">Logout</a>
-    </div>
-    <!-- END Page Content -->
 @endsection

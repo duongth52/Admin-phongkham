@@ -21,8 +21,8 @@
 // });
 
 Route::view('/', 'signin');
-Route::get('/signin', ['as' => 'getLogin', 'uses' => 'AdminLoginController@getLogin']);
-Route::post('/signin', ['as' => 'postLogin', 'uses' => 'AdminLoginController@postLogin']);
+Route::get('/login', ['as' => 'getLogin', 'uses' => 'AdminLoginController@getLogin']);
+Route::post('/login', ['as' => 'postLogin', 'uses' => 'AdminLoginController@postLogin']);
 Route::any('/logout', ['as' => 'postlogout', 'uses' => 'AdminLoginController@logout']);
 Route::get('/getadd', ['as' => 'getadd', 'uses' => 'AdminLoginController@getadd']);
 Route::post('/posttadd', ['as' => 'posttadd', 'uses' => 'AdminLoginController@posttadd']);
@@ -35,12 +35,15 @@ Route::group([
 ], function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::view('/nhan-vien', 'nhanvien.danhsach');
+    Route::view('/them-nhan-vien', 'nhanvien.themnhanvien');
+
 });
 
 
-Route::view('/examples/plugin-helper', 'examples.plugin_helper');
-Route::view('/examples/plugin-init', 'examples.plugin_init');
-Route::view('/examples/blank', 'examples.blank');
+// Route::view('/examples/plugin-helper', 'examples.plugin_helper');
+// Route::view('/examples/plugin-init', 'examples.plugin_init');
+// Route::view('/examples/blank', 'examples.blank');
 
 //  Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');

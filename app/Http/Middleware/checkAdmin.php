@@ -16,9 +16,20 @@ class checkAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::check()||Auth::user()->status >=1){
-            return redirect()->route('getLogin');
+        $isAdmin = Auth::user()->status;
+        if(Auth::check()) {
+            switch ($isAdmin) {
+                case 0:
+                    return $next($request);
+                case 1:
+                    break;
+            }
         }
-        return $next($request);
+        return redirect()->route('getLogin');
+
+        // if(!Auth::check()||Auth::user()->status >1){
+        // }
+
+        // return $next($request);
     }
 }
